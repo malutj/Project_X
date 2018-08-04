@@ -4,7 +4,9 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "HealthComponent.h"
 #include "Project_XCharacter.generated.h"
+
 
 UCLASS(config=Game)
 class AProject_XCharacter : public ACharacter
@@ -28,6 +30,9 @@ public:
 	/** Base look up/down rate, in deg/sec. Other scaling may affect final rate. */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category=Camera)
 	float BaseLookUpRate;
+
+    UPROPERTY(EditAnywhere)
+    UHealthComponent *HealthComponent;
 
 protected:
 

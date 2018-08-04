@@ -8,12 +8,15 @@
 #include "GameFramework/CharacterMovementComponent.h"
 #include "GameFramework/Controller.h"
 #include "GameFramework/SpringArmComponent.h"
+#include "HealthComponent.h"
 
 //////////////////////////////////////////////////////////////////////////
 // AProject_XCharacter
 
 AProject_XCharacter::AProject_XCharacter()
 {
+    HealthComponent = CreateDefaultSubobject<UHealthComponent>("HealthComponent");
+
 	// Set size for collision capsule
 	GetCapsuleComponent()->InitCapsuleSize(42.f, 96.0f);
 
