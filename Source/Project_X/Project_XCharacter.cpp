@@ -1,5 +1,5 @@
 // Copyright 1998-2018 Epic Games, Inc. All Rights Reserved.
-
+#include "Project_X.h"
 #include "Project_XCharacter.h"
 #include "HeadMountedDisplayFunctionLibrary.h"
 #include "Camera/CameraComponent.h"
@@ -15,6 +15,8 @@
 
 AProject_XCharacter::AProject_XCharacter()
 {
+    UE_LOG ( LogProjectX, Display, TEXT ( "Creating character" ) );
+
     HealthComponent = CreateDefaultSubobject<UHealthComponent>("HealthComponent");
 
 	// Set size for collision capsule
@@ -39,7 +41,7 @@ AProject_XCharacter::AProject_XCharacter()
 	CameraBoom = CreateDefaultSubobject<USpringArmComponent>(TEXT("CameraBoom"));
 	CameraBoom->SetupAttachment(RootComponent);
 	CameraBoom->TargetArmLength = 300.0f; // The camera follows at this distance behind the character	
-	CameraBoom->bUsePawnControlRotation = true; // Rotate the arm based on the controller
+	CameraBoom->bUsePawnControlRotation = true; // Rotate the arm based on the controller        
 
 	// Create a follow camera
 	FollowCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("FollowCamera"));
